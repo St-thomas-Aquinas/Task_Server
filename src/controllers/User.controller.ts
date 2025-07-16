@@ -36,9 +36,10 @@ export const CreateUser = async (req:any, res:any) => {
 export const GetAllUsers = async (req:any, res:any) => {
     try{
         const AllUser = await UserClient.findMany();
+        console.log(AllUser)
         res.status(201).json({data:AllUser})
     }catch(e){
-        res.status(201).json({message:"Failed to create new user",e})
+        res.status(201).json({message:"Failed to get users",e})
     }
 }
 
