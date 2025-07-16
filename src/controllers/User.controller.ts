@@ -1,9 +1,6 @@
-//imports 
-import { PrismaClient } from "../../node_modules/@prisma/client";
+import { PrismaClient } from "@prisma/client";
 
-//End of imports
 
-//Variable Decraration
 const UserClient = new PrismaClient().usertable;
 //End OF Variable Decraration
 
