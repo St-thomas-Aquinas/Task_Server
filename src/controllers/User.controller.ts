@@ -1,5 +1,5 @@
 //imports 
-import { PrismaClient } from "../../generated/prisma/client";
+import { PrismaClient } from "../../node_modules/@prisma/client";
 
 //End of imports
 
