@@ -1,6 +1,7 @@
 //Import Declaration
 import express from 'express'
 import UserRouter from './routes/User.router'
+import cors from "cors";
 //End Of import Declaration
 
 //Variables
@@ -8,9 +9,11 @@ import UserRouter from './routes/User.router'
  const port = process.env.PORT || 5000
  //End of Variables
 
-
+ //App.use Declaration
+ app.use(cors());
  app.use(express.json());
  app.use(express.urlencoded({ extended: true}));
+ // End of App.use Declaration
 
  //Router Declaration
  app.get("/test",(req,res) =>
