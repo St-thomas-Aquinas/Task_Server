@@ -15,7 +15,7 @@ export const CreateNewTask = async (req: any, res: any) => {
         data: {
           Title: req.body.Title,
           Description: req.body.Description,
-          UserName:req.body.UserName
+          User:req.body.UserName
         },
       });
       res.status(201).json({ data: NewPost });
