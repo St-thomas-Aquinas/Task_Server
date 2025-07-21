@@ -7,6 +7,7 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
 model usertable{
    id                     String      @id     @default(uuid())
    FirstName              String   
@@ -18,4 +19,17 @@ model usertable{
    DateJoined             DateTime            @default(now())
    lastProfileUpdate      DateTime            @updatedAt
    isDeleted              Boolean             @default(false)
+   Tasks Tasktable[]
 }
+
+ model Tasktable{
+   id                       String      @id       @default(uuid())
+   Title                    String
+   Description               String
+   DateCreated              DateTime              @default(now())
+   LastUpdate               DateTime              @updatedAt
+   isDeleted                Boolean               @default(false)
+   isCompleted              Boolean               @default(false)
+   UserName                String                 @default("null")
+   User                     usertable             @relation(fields: [UserName], references :[UserName])
+   }
