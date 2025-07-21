@@ -3,7 +3,7 @@ import { PrismaClient } from "@prisma/client";
 // End Import Declaration
 
 // Variable Decraration
-const UserClient = new PrismaClient().tasktable;
+const UserClient = new PrismaClient().Tasktable;
 //End OF Variable Decraration 
 
 //Creating a New post  /api/auth/register
