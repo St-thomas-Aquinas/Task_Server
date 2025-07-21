@@ -19,10 +19,10 @@ model usertable{
    DateJoined             DateTime            @default(now())
    lastProfileUpdate      DateTime            @updatedAt
    isDeleted              Boolean             @default(false)
-   Tasks Tasktable[]
+   tasks tasktable[]
 }
 
- model Tasktable{
+ model tasktable{
    id                       String      @id       @default(uuid())
    Title                    String
    Description               String
