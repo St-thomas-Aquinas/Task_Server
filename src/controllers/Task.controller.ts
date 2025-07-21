@@ -12,11 +12,9 @@ export const CreateNewTask = async (req: any, res: any) => {
       const NewPostData = req.body;
       console.log(NewPostData);
       const NewPost = await UserClient.create({
-        data: {
-          Title: req.body.Title,
-          Description: req.body.Description,
-          User:req.body.UserName
-        },
+        
+          data:NewPostData
+        
       });
       res.status(201).json({ data: NewPost });
     } catch (e) {
