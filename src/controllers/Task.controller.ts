@@ -46,7 +46,7 @@ export const GetTask = async (req: any, res: any) => {
 //Deleting Task/seeting isDelect to true /api/auth/register
 export const DeletTask = async (req: any, res: any) => {
   try {
-    const TaskId = req.body.Delete;
+    const TaskId = req.params.Delete;
     console.log(TaskId)
     const DeleteTask = await UserClient.updateMany({
       where: {
