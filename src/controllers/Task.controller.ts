@@ -27,7 +27,7 @@ export const CreateNewTask = async (req: any, res: any) => {
   //Getting Post by UserName  /api/auth/register
 export const GetTask = async (req: any, res: any) => {
   try {
-    const UserName = req.params;
+    const UserName = req.params.Mytask;
     console.log(UserName)
     const UsersPost = await UserClient.findMany({
       where:{
