@@ -40,3 +40,42 @@ export const GetTask = async (req: any, res: any) => {
     res.status(201).json({ message: "Failed to create New Post", e });
   }
 };
+
+
+//Deleting Task/seeting isDelect to true /api/auth/register
+export const DeletTask = async (req: any, res: any) => {
+  try {
+    const TaskId = req.params.Delete;
+    console.log(TaskId)
+    const DeleteTask = await UserClient.updateMany({
+      where: {
+        id:TaskId
+      },
+      data: {
+        isDeleted:true
+      }
+    });
+    res.status(201).json({ data: DeletTask });
+  } catch (e) {
+    res.status(201).json({ message: "Failed to create New Post", e });
+  }
+};
+
+
+//Deleting Task/seeting isDelect to true /api/auth/register
+export const updateTask = async (req: any, res: any) => {
+  try {
+    const TaskId = req.params.update;
+    const updateData= req.body
+    console.log(TaskId)
+    const UpdateTask = await UserClient.updateMany({
+      where: {
+        id:TaskId
+      },
+      data: updateData
+    });
+    res.status(201).json({ data: updateData });
+  } catch (e) {
+    res.status(201).json({ message: "Failed to create New Post", e });
+  }
+};
