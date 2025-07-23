@@ -28,8 +28,8 @@ export const CreateNewTask = async (req: any, res: any) => {
 export const GetTask = async (req: any, res: any) => {
   try {
     const UserName = req.params;
+    console.log(UserName)
     const UsersPost = await UserClient.findMany({
-      
       where:{
         UserName:UserName
       }
