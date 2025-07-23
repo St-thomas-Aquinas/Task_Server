@@ -31,7 +31,8 @@ export const GetTask = async (req: any, res: any) => {
     console.log(UserName)
     const UsersPost = await UserClient.findMany({
       where:{
-        UserName:UserName
+        UserName:UserName,
+        isDeleted:false
       }
       
     });
@@ -45,7 +46,7 @@ export const GetTask = async (req: any, res: any) => {
 //Deleting Task/seeting isDelect to true /api/auth/register
 export const DeletTask = async (req: any, res: any) => {
   try {
-    const TaskId = req.params.Delete;
+    const TaskId = req.body.Delete;
     console.log(TaskId)
     const DeleteTask = await UserClient.updateMany({
       where: {
