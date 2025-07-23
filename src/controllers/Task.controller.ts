@@ -45,12 +45,12 @@ export const GetTask = async (req: any, res: any) => {
 //Getting Post by UserName  /api/auth/register
 export const GetDeletedTask = async (req: any, res: any) => {
   try {
-    const UserName = req.params.Mytrash;
+    const UserName = req.params.Mytash;
     console.log(UserName)
     const UsersTrash = await UserClient.findMany({
       where:{
         UserName:UserName,
-        isDeleted:true
+        //isDeleted:true
       }
       
     });
@@ -102,7 +102,7 @@ export const updateTask = async (req: any, res: any) => {
 //restore Task/seeting isDelect to true /api/auth/register
 export const RestoretTask = async (req: any, res: any) => {
   try {
-    const TaskId = req.params.Delete;
+    const TaskId = req.params.restore;
     console.log(TaskId)
     const RestoretTask = await UserClient.updateMany({
       where: {
