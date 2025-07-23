@@ -23,3 +23,20 @@ export const CreateNewTask = async (req: any, res: any) => {
   };
   
   //End of Register New User
+
+  //Getting Post by UserName  /api/auth/register
+export const GetTask = async (req: any, res: any) => {
+  try {
+    const UserName = req.params;
+    const UsersPost = await UserClient.findMany({
+      
+      where:{
+        UserName:UserName
+      }
+      
+    });
+    res.status(201).json({ data: UsersPost });
+  } catch (e) {
+    res.status(201).json({ message: "Failed to create New Post", e });
+  }
+};
