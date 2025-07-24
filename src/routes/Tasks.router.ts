@@ -16,7 +16,7 @@ const TaskRouter = Router();
 TaskRouter.post("/", CreateNewTask);
 TaskRouter.get("/:Mytasks", GetTask);
 TaskRouter.get("/:Mytash", GetDeletedTask);
-TaskRouter.patch("/:Delete", DeletTask);
+TaskRouter.delete("/:Delete", DeletTask);
 TaskRouter.patch("/:restore", RestoretTask);
 TaskRouter.patch("/:update", updateTask);
 
