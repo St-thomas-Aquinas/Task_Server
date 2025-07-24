@@ -31,14 +31,14 @@ export const CreateNewTask = async (req: any, res: any) => {
 
   //GET  /api/tasks: get all tasks belonging to a specific user.
 
-export const GetDeletedTask = async (req: any, res: any) => {
+export const GetTask = async (req: any, res: any) => {
   try {
     const UserName = req.params.Mytasks;
     console.log(UserName)
     const UsersPost = await UserClient.findMany({
       where:{
      AND:[ { UserName:UserName},
-         {isDeleted:true}
+         {isDeleted:false}
      ]
       }
       
@@ -55,12 +55,12 @@ export const GetDeletedTask = async (req: any, res: any) => {
 
  export const GetTask1 = async (req: any, res: any) => {
   try {
-    const UserName = req.params.Mytrash;
+    const UserName = req.params.Mytasks;
     console.log(UserName)
     const UsersPost = await UserClient.findMany({
       where:{
      AND:[ { UserName:UserName},
-         {isDeleted:false}
+         {isDeleted:true}
      ]
       }
       
