@@ -19,7 +19,7 @@ TaskRouter.get("/:Mytasks", GetTask);
 TaskRouter.get("/:Mytrash", GetDeletedTask);
 TaskRouter.get("/all", GetAllTask);
 TaskRouter.delete("/:Delete", DeletTask);
-TaskRouter.patch("/:restore", RestoretTask);
+TaskRouter.delete("/:restore", RestoretTask);
 TaskRouter.patch("/:update", updateTask);
 
 //End of Router
