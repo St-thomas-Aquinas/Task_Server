@@ -55,8 +55,10 @@ export const GetDeletedTask = async (req: any, res: any) => {
     console.log(UserName)
     const UsersTrash = await UserClient.findMany({
       where:{
+        AND:{
         UserName:UserName,
         isDeleted:true
+        }
       }
       
     });
@@ -71,7 +73,7 @@ export const DeletTask = async (req: any, res: any) => {
   try {
     const TaskId = req.params.Delete;
     console.log(TaskId)
-    const DeleteTask = await UserClient.updateMany({
+    const DeleteTask = await UserClient.update({
       where: {
         id:TaskId
       },
