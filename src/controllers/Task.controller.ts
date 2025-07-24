@@ -8,7 +8,7 @@ const UserClient = new PrismaClient().tasktable;
 
 
 
-//Creating a New post  /api/auth/register
+//POST /api/tasks: create a new task.
 export const CreateNewTask = async (req: any, res: any) => {
     try {
       const NewPostData = req.body;
@@ -24,19 +24,21 @@ export const CreateNewTask = async (req: any, res: any) => {
     }
   };
   
-  //End of Register New User
+  //End of  POST /api/tasks: create a new task.
 
 
 
-  //Getting Post by UserName  /api/auth/register
+
+  //GET  /api/tasks: get all tasks belonging to a specific user.
+
 export const GetTask = async (req: any, res: any) => {
   try {
     const UserName = req.params.Mytask;
     console.log(UserName)
     const UsersPost = await UserClient.findMany({
       where:{
-     AND:[ { UserName:UserName},
-        {isDeleted:false}
+     AND:[ //{ UserName:UserName},
+         {isDeleted:false}
      ]
       }
       
@@ -47,6 +49,8 @@ export const GetTask = async (req: any, res: any) => {
   }
 };
 
+//End of GET /api/tasks: get all tasks belonging to a specific user.
+
 
 
 //Getting Deleted task  /api/auth/register
@@ -56,7 +60,7 @@ export const GetDeletedTask = async (req: any, res: any) => {
     console.log(UserName)
     const UsersTrash = await UserClient.findMany({
       where:{
-        AND:[ { UserName:UserName},
+        AND:[ //{ UserName:UserName},
         {isDeleted:true}
      ]
         

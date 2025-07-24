@@ -9,7 +9,7 @@ const UserClient = new PrismaClient().usertable;
 const secretKey = "maxwell";
 //End OF Variable Decraration
 
-//Register New user  /api/auth/register
+//POST /api/auth/register: register a user
 export const CreateUser = async (req: any, res: any) => {
   try {
     const NewUserData = req.body;
@@ -29,7 +29,9 @@ export const CreateUser = async (req: any, res: any) => {
   }
 };
 
-//End of Register New User
+//End of POST /api/auth/register: register a user
+
+
 
 //Getting All users
 export const GetAllUsers = async (req: any, res: any) => {
@@ -46,7 +48,7 @@ export const GetAllUsers = async (req: any, res: any) => {
 
 
 
-//Login  user  /api/auth/Login
+//POST /api/auth/login: login a user.
 export const LoginUser = async (req: any, res: any) => {
   try {
     const params = req.params.Login;
@@ -82,4 +84,4 @@ function erraseDetails() {
 }
 erraseDetails();
 
-//End of Login user  /api/auth/Login
+//End of POST /api/auth/login: login a user.
