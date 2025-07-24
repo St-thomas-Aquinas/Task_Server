@@ -35,8 +35,8 @@ export const GetTask = async (req: any, res: any) => {
     console.log(UserName)
     const UsersPost = await UserClient.findMany({
       where:{
-        UserName:UserName,
-        isDeleted:false
+     //   UserName:UserName,
+        isDeleted:true
       }
       
     });
