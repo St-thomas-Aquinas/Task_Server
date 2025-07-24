@@ -136,7 +136,7 @@ export const RestoretTask = async (req: any, res: any) => {
 export const GetAllTask = async (req: any, res: any) => {
   try {
     const AllUser = await UserClient.findMany();
-    console.log(AllUser);
+    console.log("Results",AllUser);
     res.status(201).json({ data: AllUser });
   } catch (e) {
     res.status(201).json({ message: "Failed to get users", e });
