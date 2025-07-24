@@ -1,7 +1,7 @@
 //import Declarations
 import { Router } from "express";
 import { CreateNewTask } from "../controllers/Task.controller";
-import { GetTask } from "../controllers/Task.controller";
+import { GetDeletedTask } from "../controllers/Task.controller";
 import { DeletTask } from "../controllers/Task.controller";
 import { updateTask } from "../controllers/Task.controller";
 import { RestoretTask } from "../controllers/Task.controller";
@@ -15,7 +15,7 @@ const TaskRouter = Router();
 
 //Routers
 TaskRouter.post("/", CreateNewTask);
-TaskRouter.get("/:Mytasks", GetTask);
+TaskRouter.get("/:Mytasks", GetDeletedTask);
 TaskRouter.get("/:Mytrash", GetTask1);
 TaskRouter.get("/all", GetAllTask);
 TaskRouter.delete("/:Delete", DeletTask);
