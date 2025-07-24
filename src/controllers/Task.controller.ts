@@ -43,7 +43,7 @@ export const GetTask = async (req: any, res: any) => {
       }
       
     });
-    res.status(201).json({ data: UsersPost });
+    res.status(201).json({ message: "Getting task that have not been deleted"});
   } catch (e) {
     res.status(201).json({ message: "Failed to get post", e });
   }
@@ -57,7 +57,7 @@ export const GetTask = async (req: any, res: any) => {
   try {
     const UserName = req.params.Mytasks;
     console.log(UserName)
-    const UsersPost = await UserClient.findMany({
+    const UsersPost1 = await UserClient.findMany({
       where:{
      AND:[ { UserName:UserName},
          {isDeleted:true}
@@ -65,7 +65,7 @@ export const GetTask = async (req: any, res: any) => {
       }
       
     });
-    res.status(201).json({ data: UsersPost });
+    res.status(201).json({{ message: "Getting task that have  been deleted"});
   } catch (e) {
     res.status(201).json({ message: "Failed to get post", e });
   }
