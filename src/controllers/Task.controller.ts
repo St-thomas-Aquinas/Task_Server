@@ -65,7 +65,7 @@ export const GetTask = async (req: any, res: any) => {
       }
       
     });
-    res.status(201).json({{ message: "Getting task that have  been deleted"});
+    res.status(201).json({ message: "Getting task that have  been deleted"});
   } catch (e) {
     res.status(201).json({ message: "Failed to get post", e });
   }
