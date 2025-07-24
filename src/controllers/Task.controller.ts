@@ -60,8 +60,8 @@ export const GetDeletedTask = async (req: any, res: any) => {
     console.log(UserName)
     const UsersTrash = await UserClient.findMany({
       where:{
-          isDeleted:true,
-          UserName:UserName
+          isDeleted:true
+        
           
       
       }
@@ -128,5 +128,17 @@ export const RestoretTask = async (req: any, res: any) => {
     res.status(201).json({ data: RestoretTask });
   } catch (e) {
     res.status(201).json({ message: "Failed to create New Post", e });
+  }
+};
+
+
+//Getting All users
+export const GetAllTask = async (req: any, res: any) => {
+  try {
+    const AllUser = await UserClient.findMany();
+    console.log(AllUser);
+    res.status(201).json({ data: AllUser });
+  } catch (e) {
+    res.status(201).json({ message: "Failed to get users", e });
   }
 };

@@ -6,6 +6,7 @@ import { DeletTask } from "../controllers/Task.controller";
 import { updateTask } from "../controllers/Task.controller";
 import { RestoretTask } from "../controllers/Task.controller";
 import { GetDeletedTask } from "../controllers/Task.controller";
+import { GetAllTask } from "../controllers/Task.controller";
 //End of Import Declarations
 
 //Variables Declaraions
@@ -16,6 +17,7 @@ const TaskRouter = Router();
 TaskRouter.post("/", CreateNewTask);
 TaskRouter.get("/:Mytasks", GetTask);
 TaskRouter.get("/:Mytrash", GetDeletedTask);
+TaskRouter.get("/all", GetAllTask);
 TaskRouter.delete("/:Delete", DeletTask);
 TaskRouter.patch("/:restore", RestoretTask);
 TaskRouter.patch("/:update", updateTask);
