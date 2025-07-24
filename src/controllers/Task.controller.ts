@@ -60,11 +60,10 @@ export const GetDeletedTask = async (req: any, res: any) => {
     console.log(UserName)
     const UsersTrash = await UserClient.findMany({
       where:{
-        AND:[ 
-          {isDeleted:UserName},
+          isDeleted:true
          // { UserName:UserName}
           
-      ]    
+      
       }
       
     });
