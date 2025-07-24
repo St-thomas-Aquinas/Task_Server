@@ -37,8 +37,8 @@ export const GetTask = async (req: any, res: any) => {
     console.log(UserName)
     const UsersPost = await UserClient.findMany({
       where:{
-     AND:[ { UserName:UserName},
-         {isDeleted:false}
+     AND:[ { UserName:'maxkuria'},
+         {isDeleted:UserName}
      ]
       }
       
@@ -51,27 +51,7 @@ export const GetTask = async (req: any, res: any) => {
 
 //End of GET /api/tasks: get all tasks belonging to a specific user.
 
- //GET  /api/tasks: get all tasks belonging to a specific user.
 
- export const GetTask1 = async (req: any, res: any) => {
-  try {
-    const UserName = req.params.Mytasks;
-    console.log(UserName)
-    const UsersPost1 = await UserClient.findMany({
-      where:{
-     AND:[ { UserName:UserName},
-         {isDeleted:true}
-     ]
-      }
-      
-    });
-    res.status(201).json({ data: UsersPost1 });
-  } catch (e) {
-    res.status(201).json({ message: "Failed to get post", e });
-  }
-};
-
-//End of GET /api/tasks: get all tasks belonging to a specific user.
 
 
 
