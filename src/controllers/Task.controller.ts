@@ -6,6 +6,8 @@ import { PrismaClient } from "@prisma/client";
 const UserClient = new PrismaClient().tasktable;
 //End OF Variable Decraration 
 
+
+
 //Creating a New post  /api/auth/register
 export const CreateNewTask = async (req: any, res: any) => {
     try {
@@ -18,11 +20,13 @@ export const CreateNewTask = async (req: any, res: any) => {
       });
       res.status(201).json({ data: NewPost });
     } catch (e) {
-      res.status(201).json({ message: "Failed to create New Post", e });
+      res.status(201).json({ message: "Failed to create New Task", e });
     }
   };
   
   //End of Register New User
+
+
 
   //Getting Post by UserName  /api/auth/register
 export const GetTask = async (req: any, res: any) => {
@@ -38,11 +42,13 @@ export const GetTask = async (req: any, res: any) => {
     });
     res.status(201).json({ data: UsersPost });
   } catch (e) {
-    res.status(201).json({ message: "Failed to create New Post", e });
+    res.status(201).json({ message: "Failed to get post", e });
   }
 };
 
-//Getting Post by UserName  /api/auth/register
+
+
+//Getting Deleted task  /api/auth/register
 export const GetDeletedTask = async (req: any, res: any) => {
   try {
     const UserName = req.params.Mytash;
