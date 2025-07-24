@@ -53,7 +53,7 @@ export const GetTask = async (req: any, res: any) => {
 
  //GET  /api/tasks: get all tasks belonging to a specific user.
 
- export const GetDeletedTask = async (req: any, res: any) => {
+ export const GetTask1 = async (req: any, res: any) => {
   try {
     const UserName = req.params.Mytasks;
     console.log(UserName)
