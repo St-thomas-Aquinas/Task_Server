@@ -38,6 +38,28 @@ export const GetTask = async (req: any, res: any) => {
     const UsersPost = await UserClient.findMany({
       where:{
      AND:[ { UserName:UserName},
+         {isDeleted:false}
+     ]
+      }
+      
+    });
+    res.status(201).json({ data: UsersPost });
+  } catch (e) {
+    res.status(201).json({ message: "Failed to get post", e });
+  }
+};
+
+//End of GET /api/tasks: get all tasks belonging to a specific user.
+
+ //GET  /api/tasks: get all tasks belonging to a specific user.
+
+ export const GetDeletedTask = async (req: any, res: any) => {
+  try {
+    const UserName = req.params.Mytasks;
+    console.log(UserName)
+    const UsersPost = await UserClient.findMany({
+      where:{
+     AND:[ { UserName:UserName},
          {isDeleted:true}
      ]
       }
@@ -52,23 +74,6 @@ export const GetTask = async (req: any, res: any) => {
 //End of GET /api/tasks: get all tasks belonging to a specific user.
 
 
-
-//Getting Deleted task  
-export const GetDeletedTask = async (req: any, res: any) => {
-  try {
-    const UserName = req.params.Mytrash
-    console.log(UserName)
-    const UsersTrash = await UserClient.findMany({
-      where:{
-       isDeleted:true
-      }
-      
-    });
-    res.status(201).json({ data: UsersTrash });
-  } catch (e) {
-    res.status(201).json({ message: "Failed to create New Post", e });
-  }
-};
 
 //Deleting Task/seeting isDelect to true /api/auth/register
 export const DeletTask = async (req: any, res: any) => {
