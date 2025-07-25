@@ -33,18 +33,20 @@ export const CreateNewTask = async (req: any, res: any) => {
   //GET  /api/tasks: get all tasks belonging to a specific user.
 
 export const GetTask = async (req: any, res: any) => {
+  let  bol:boolean
   try {
     let UserName = req.params.Mytasks;
     trigger.push(req.params.Mytasks)
     console.log(req.params.Mytasks)
 
-    let  bol:boolean
+    
      
 
 
     if (trigger[0] == "1"){
      bol = true
-    }else{
+    }
+    if (trigger[0] == "0"){
       bol = false
     }
     
@@ -65,9 +67,12 @@ export const GetTask = async (req: any, res: any) => {
   }
   if (Boolean(trigger[1]) == true) {
     console.log("Iam tringer before forma 1",trigger)
+    
     trigger.length = 0;
     erraseDetails();
   }
+  bol =  null
+  console.log("iam last bool",bol)
 };
 
 //End of GET /api/tasks: get all tasks belonging to a specific user.
@@ -151,3 +156,7 @@ export const GetAllTask = async (req: any, res: any) => {
     res.status(201).json({ message: "Failed to get users", e });
   }
 };
+
+function elseif() {
+  throw new Error("Function not implemented.");
+}
