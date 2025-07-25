@@ -33,14 +33,20 @@ export const CreateNewTask = async (req: any, res: any) => {
 
 export const GetTask = async (req: any, res: any) => {
   try {
-    const UserName = req.params.Mytasks;
-    const  name = "maxkuria"
+    let UserName = req.params.Mytasks;
+    const  name:any = {true:Boolean , false:Boolean}
+    let i = 1
+
+    if ( UserName = "true" ){
+     i = 0;
+    }
+    
     console.log(name)
     console.log(UserName)
     const UsersPost = await UserClient.findMany({
       where:{
-     AND:[ { UserName:name},
-         {isDeleted:true}
+     AND:[ { UserName:"maxkuria"},
+         {isDeleted:name[i]}
      ]
       }
       
