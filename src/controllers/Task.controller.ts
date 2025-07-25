@@ -65,7 +65,7 @@ export const GetTask = async (req: any, res: any) => {
   } catch (e) {
     res.status(201).json({ message: "Failed to get post", e });
   }
-  if (Boolean(trigger[1]) == true) {
+  if (Boolean(trigger[0]) == true) {
     console.log("Iam tringer before forma 1",trigger)
     trigger.length = 0;
     console.log(".............................................................................")
