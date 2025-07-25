@@ -74,7 +74,7 @@ export const GetTask = async (req: any, res: any) => {
 
 function erraseDetails() {
   trigger.length = 0;
-  console.log(trigger)
+  //console.log(trigger)
 }
 erraseDetails();
 
@@ -124,7 +124,7 @@ export const RestoretTask = async (req: any, res: any) => {
   try {
     const TaskId = req.params.restore;
     console.log(TaskId)
-    const RestoretTask = await UserClient.updateMany({
+    const RestoretTask = await UserClient.update({
       where: {
         id:TaskId
       },
