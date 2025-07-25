@@ -65,13 +65,14 @@ export const GetTask = async (req: any, res: any) => {
   } catch (e) {
     res.status(201).json({ message: "Failed to get post", e });
   }
-  if (Boolean(trigger[0]) == true) {
+  if (Boolean(trigger[1]) == true) {
     console.log("Iam tringer before forma 1",trigger)
     trigger.length = 0;
+    bol =  null
     console.log(".............................................................................")
   }
-  bol =  null
-  console.log("iam last bool",bol)
+  
+ // console.log("iam last bool",bol)
 };
 
 //End of GET /api/tasks: get all tasks belonging to a specific user.
