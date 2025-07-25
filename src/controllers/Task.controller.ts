@@ -5,6 +5,7 @@ import { PrismaClient } from "@prisma/client";
 // Variable Decraration
 const UserClient = new PrismaClient().tasktable;
 const trigger:any = []
+let  bol:boolean
 //End OF Variable Decraration 
 
 
@@ -33,15 +34,11 @@ export const CreateNewTask = async (req: any, res: any) => {
   //GET  /api/tasks: get all tasks belonging to a specific user.
 
 export const GetTask = async (req: any, res: any) => {
-  let  bol:boolean
+  
   try {
     let UserName = req.params.Mytasks;
     trigger.push(req.params.Mytasks)
-    console.log(req.params.Mytasks)
-
-    
-     
-
+    console.log("Parameter from user ",req.params.Mytasks)
 
     if (trigger[0] == "1"){
      bol = true
@@ -51,11 +48,11 @@ export const GetTask = async (req: any, res: any) => {
     }
     
     console.log(bol)
-    console.log("Index one",trigger[0])
+    console.log("Array Trigger contains",trigger)
     
     const UsersPost = await UserClient.findMany({
       where:{
-     AND:[ { UserName:UserName},
+     AND:[ { UserName:trigger[1]},
          {isDeleted:bol}
      ]
       }
