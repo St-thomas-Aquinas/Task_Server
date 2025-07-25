@@ -37,6 +37,7 @@ export const GetTask = async (req: any, res: any) => {
     let UserName = req.params.Mytasks;
     trigger.push(req.params.Mytasks)
     console.log(req.params.Mytasks)
+    
     let  bol:boolean
      
 
