@@ -62,6 +62,7 @@ export const GetTask = async (req: any, res: any) => {
       
     });
     res.status(201).json({ data: UsersPost });
+    console.log(UsersPost)
   } catch (e) {
     res.status(201).json({ message: "Failed to get post", e });
   }
