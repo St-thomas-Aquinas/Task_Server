@@ -37,7 +37,7 @@ export const GetTask = async (req: any, res: any) => {
     let UserName = req.params.Mytasks;
     trigger.push(req.params.Mytasks)
     console.log(req.params.Mytasks)
-    
+
     let  bol:boolean
      
 
@@ -132,7 +132,7 @@ export const RestoretTask = async (req: any, res: any) => {
         isDeleted:false
       }
     });
-    res.status(201).json({ data: RestoretTask });
+    res.status(201).json({message: "i have been hit" });
   } catch (e) {
     res.status(201).json({ message: "Failed to create New Post", e });
   }
