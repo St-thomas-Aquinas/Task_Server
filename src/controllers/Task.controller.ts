@@ -67,9 +67,8 @@ export const GetTask = async (req: any, res: any) => {
   }
   if (Boolean(trigger[1]) == true) {
     console.log("Iam tringer before forma 1",trigger)
-    
     trigger.length = 0;
-    erraseDetails();
+    console.log(".............................................................................")
   }
   bol =  null
   console.log("iam last bool",bol)
