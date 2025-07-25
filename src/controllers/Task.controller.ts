@@ -37,12 +37,12 @@ export const GetTask = async (req: any, res: any) => {
     let  bol:boolean
     let i = 1
 
-    if ( UserName = 1 ){
+    if (UserName = 1){
      bol = true
     }else{
       bol = false
     }
-    
+    console.log(UserName)
     console.log(bol)
     
     const UsersPost = await UserClient.findMany({
