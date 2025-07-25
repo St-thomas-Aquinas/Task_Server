@@ -5,7 +5,7 @@ import { PrismaClient } from "@prisma/client";
 // Variable Decraration
 const UserClient = new PrismaClient().tasktable;
 const trigger:any = []
-let  bol:boolean
+
 //End OF Variable Decraration 
 
 
@@ -34,7 +34,7 @@ export const CreateNewTask = async (req: any, res: any) => {
   //GET  /api/tasks: get all tasks belonging to a specific user.
 
 export const GetTask = async (req: any, res: any) => {
-  
+  let  bol:boolean
   try {
     let UserName = req.params.Mytasks;
     trigger.push(req.params.Mytasks)
