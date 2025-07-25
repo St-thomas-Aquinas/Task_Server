@@ -41,8 +41,8 @@ export const GetTask = async (req: any, res: any) => {
      i = 0;
     }
     
-    console.log(name)
-    console.log(UserName)
+    console.log(name[i])
+    
     const UsersPost = await UserClient.findMany({
       where:{
      AND:[ { UserName:"maxkuria"},
