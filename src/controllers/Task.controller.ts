@@ -34,6 +34,7 @@ export const CreateNewTask = async (req: any, res: any) => {
 export const GetTask = async (req: any, res: any) => {
   try {
     let UserName = req.params.Mytasks;
+    console.log(req.params.Mytasks)
     let  bol:boolean
     let i = 1
 
@@ -42,7 +43,7 @@ export const GetTask = async (req: any, res: any) => {
     }else{
       bol = false
     }
-    console.log(UserName)
+    
     console.log(bol)
     
     const UsersPost = await UserClient.findMany({
