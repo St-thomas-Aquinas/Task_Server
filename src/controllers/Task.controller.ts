@@ -43,7 +43,7 @@ export const GetTask = async (req: any, res: any) => {
       bol = false
     }
     
-    console.log(name[i])
+    console.log(bol)
     
     const UsersPost = await UserClient.findMany({
       where:{
