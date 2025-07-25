@@ -35,6 +35,7 @@ export const GetTask = async (req: any, res: any) => {
   try {
     const UserName = req.params.Mytasks;
     const  name = "maxkuria"
+    console.log(name)
     console.log(UserName)
     const UsersPost = await UserClient.findMany({
       where:{
