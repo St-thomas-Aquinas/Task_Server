@@ -37,7 +37,7 @@ export const GetTask = async (req: any, res: any) => {
     let  bol:boolean
     let i = 1
 
-    if ( UserName = "true" ){
+    if ( UserName = 1 ){
      bol = true
     }else{
       bol = false
