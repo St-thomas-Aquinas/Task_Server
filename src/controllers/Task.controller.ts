@@ -38,7 +38,8 @@ export const GetTask = async (req: any, res: any) => {
     trigger.push(req.params.Mytasks)
     console.log(req.params.Mytasks)
     let  bol:boolean
-    
+     
+
 
     if (trigger[0] == "1"){
      bol = true
@@ -47,6 +48,7 @@ export const GetTask = async (req: any, res: any) => {
     }
     
     console.log(bol)
+    console.log("Index one",trigger[0])
     
     const UsersPost = await UserClient.findMany({
       where:{
@@ -71,6 +73,7 @@ export const GetTask = async (req: any, res: any) => {
 
 function erraseDetails() {
   trigger.length = 0;
+  console.log(trigger)
 }
 erraseDetails();
 
