@@ -37,53 +37,56 @@ export const GetTask = async (req: any, res: any) => {
   let  bol:boolean
   try {
     let UserName = req.params.Mytasks;
-    trigger.push(req.params.Mytasks)
-    console.log("Parameter from user ",req.params.Mytasks)
-
-    if (trigger[0] == "1"){
-     bol = true
-    }
-    if (trigger[0] == "0"){
-      bol = false
-    }
     
-    console.log(bol)
-    console.log("Array Trigger contains",trigger)
     
     const UsersPost = await UserClient.findMany({
       where:{
-     AND:[ { UserName:trigger[1]},
-         {isDeleted:bol}
+     AND:[ { UserName:UserName},
+         {isDeleted:false}
      ]
       }
       
     });
     res.status(201).json({ data: UsersPost });
     console.log(UsersPost)
-    bol =  null
-    trigger.length = 0;
+    
   } catch (e) {
     res.status(201).json({ message: "Failed to get post", e });
   }
-  if (Boolean(trigger[1]) == true) {
-    console.log("Iam tringer before forma 1",trigger)
-    trigger.length = 0;
-   
-    console.log(".............................................................................")
-  }
   
- // console.log("iam last bool",bol)
 };
 
 //End of GET /api/tasks: get all tasks belonging to a specific user.
 
 
-function erraseDetails() {
-  console.log("Iam tringer before forma 2",trigger)
-  trigger.length = 0;
-  console.log(trigger)
-}
-erraseDetails();
+
+  //GET  /api/tasks: get all tasks belonging to a specific user.
+
+  export const GetDeletedTask = async (req: any, res: any) => {
+    
+    try {
+      let UserName = req.params.Mytasks;
+      
+      
+      const UsersPost = await UserClient.findMany({
+        where:{
+       AND:[ { UserName:UserName},
+           {isDeleted:false}
+       ]
+        }
+        
+      });
+      res.status(201).json({ data: UsersPost });
+      console.log(UsersPost)
+      
+    } catch (e) {
+      res.status(201).json({ message: "Failed to get post", e });
+    }
+    
+  };
+  
+  //End of GET /api/tasks: get all tasks belonging to a specific user.
+  
 
 
 
