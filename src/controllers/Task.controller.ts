@@ -4,10 +4,7 @@ import { PrismaClient } from "@prisma/client";
 
 // Variable Decraration
 const UserClient = new PrismaClient().tasktable;
-const trigger:any = []
-
 //End OF Variable Decraration 
-
 
 
 //POST /api/tasks: create a new task.
@@ -71,7 +68,7 @@ export const GetTask = async (req: any, res: any) => {
       const UsersPost = await UserClient.findMany({
         where:{
        AND:[ { UserName:UserName},
-           {isDeleted:false}
+           {isDeleted:true}
        ]
         }
         

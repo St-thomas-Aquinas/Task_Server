@@ -10,8 +10,8 @@ const UserRouter = Router();
 //End of Variables Declaraions
 
 //Routers
-UserRouter.post("/", CreateUser);
+UserRouter.post("/api/auth/register/", CreateUser);
 UserRouter.get("/", GetAllUsers);
-UserRouter.get("/:Login", LoginUser);
+UserRouter.get("/api/auth/login/:Login", LoginUser);
 //End of Router
 export default UserRouter;
