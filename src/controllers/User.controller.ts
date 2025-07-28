@@ -74,6 +74,7 @@ export const LoginUser = async (req: any, res: any) => {
     responseDetails.push(token);
     responseDetails.push(LoginUser);
     res.status(201).json({ responseDetails });
+    console.log(LoginDetails)
   } catch (e) {
     res.status(201).json({ message: "Failed to login ", e });
   }
