@@ -95,6 +95,7 @@ export const updateUser = async (req: any, res: any) => {
   try {
     const updateUserDetails = req.body
     const userid = req.params.username
+    console.log(userid)
 
     const User = await UserClient.update({
       where:{
