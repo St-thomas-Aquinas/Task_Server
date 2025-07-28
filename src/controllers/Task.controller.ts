@@ -31,7 +31,7 @@ export const CreateNewTask = async (req: any, res: any) => {
 export const GetTask = async (req: any, res: any) => {
   let  bol:boolean
   try {
-    let Name = req.params.Mytasks;
+    let Name:string = req.params.Mytasks;
     const UsersPost = await UserClient.findMany({
       where:{
         UserName: JSON.stringify(Name),
