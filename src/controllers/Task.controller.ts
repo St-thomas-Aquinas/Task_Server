@@ -182,7 +182,7 @@ export const GetSpecificTask = async (req: any, res: any) => {
 //Complete task Api
 export const CompleteTask = async (req: any, res: any) => {
   try {
-    const TaskId = req.params.Delete;
+    const TaskId = req.params.Taskid;
     console.log(TaskId)
     const CompleteTask = await UserClient.update({
       where: {
