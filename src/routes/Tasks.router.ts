@@ -24,6 +24,6 @@ TaskRouter.delete("/re/:restore", RestoretTask);
 TaskRouter.patch("/update/:update", updateTask);
 TaskRouter.get("/Trash/:Mytrash", GetDeletedTask);
 TaskRouter.get("/SpesificTask/:Taskid", GetSpecificTask);
-TaskRouter.get("/MarkCompletedTask/:Taskid", CompleteTask);
+TaskRouter.delete("/MarkCompletedTask/:Taskid", CompleteTask);
 //End of Router
 export default TaskRouter;
