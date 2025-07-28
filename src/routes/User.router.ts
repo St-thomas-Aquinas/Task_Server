@@ -15,7 +15,7 @@ const UserRouter = Router();
 UserRouter.post("/api/auth/register/", CreateUser);
 UserRouter.get("/", GetAllUsers);
 UserRouter.get("/api/auth/login/:Login", LoginUser);
-UserRouter.get("/specific", GetSpecificUser1);
+UserRouter.get("/specific/:username", GetSpecificUser1);
 UserRouter.patch("/api/auth/update/:username", updateUser);
 
 //End of Router

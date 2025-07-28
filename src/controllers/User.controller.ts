@@ -103,9 +103,9 @@ export const updateUser = async (req: any, res: any) => {
     console.log(updateUserDetails)
     const User = await UserClient.update({
       where:{
-               UserName:userid
+               UserName:JSON.stringify(userid)
       },
-      data:updateUserDetails
+      data:JSON.stringify(updateUserDetails)
     });
 
     res.status(201).json({ data: User });
@@ -122,10 +122,11 @@ export const updateUser = async (req: any, res: any) => {
 //Getting specific Task
 //Getting All users
 export const GetSpecificUser1 = async (req: any, res: any) => {
+  const name = req.params.username
   try {
     const AllUser = await UserClient.findMany(
       {where:{
-        UserName: " maxkuria",
+        UserName: JSON.stringify(name),
       }}
     );
     console.log(AllUser);
