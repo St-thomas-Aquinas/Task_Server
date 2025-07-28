@@ -57,10 +57,12 @@ export const LoginUser = async (req: any, res: any) => {
     const params = req.params.Login;
     LoginDetails.push(params);
     console.log(params)
-    const LoginUser = await UserClient.findUnique({
+    const LoginUser = await UserClient.findMany({
       where: {
+        AND:{
         UserName: LoginDetails[0],
         Password: LoginDetails[1],
+        }
       },
     });
     const token = jwt.sign(
