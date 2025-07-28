@@ -59,8 +59,8 @@ export const LoginUser = async (req: any, res: any) => {
     console.log(params)
     const LoginUser = await UserClient.findMany({
       where: {
-        UserName: LoginDetails[0],
-        Password: LoginDetails[1],
+        UserName: " maxkuria",
+        Password: "max125well",
       
       },
     });
