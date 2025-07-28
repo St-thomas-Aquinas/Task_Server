@@ -98,7 +98,7 @@ export const updateUser = async (req: any, res: any) => {
 
     const User = await UserClient.update({
       where:{
-               id:userid
+               UserName:userid
       },
       data:updateUserDetails
     });
@@ -108,3 +108,5 @@ export const updateUser = async (req: any, res: any) => {
     res.status(201).json({ message: "Failed to Update user Details", e });
   }
 };
+
+
