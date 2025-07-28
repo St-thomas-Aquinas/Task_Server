@@ -59,8 +59,8 @@ export const LoginUser = async (req: any, res: any) => {
     console.log(params)
     const LoginUser = await UserClient.findMany({
       where: {
-        UserName: " maxkuria",
-        Password: "max125well",
+        UserName: JSON.stringify(LoginDetails[0]),
+       Password: JSON.stringify(LoginDetails[1]),
       
       },
     });
