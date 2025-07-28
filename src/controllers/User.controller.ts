@@ -111,3 +111,23 @@ export const updateUser = async (req: any, res: any) => {
 };
 
 
+
+
+
+//Getting specific Task
+export const GetSpecificUser = async (req: any, res: any) => {
+  try {
+    const UserName = req.params.UserName;
+    console.log(UserName)
+    const user = await UserClient.findUnique({
+      where: {
+        UserName:UserName
+      }
+    });
+    res.status(201).json({ data: user });
+  } catch (e) {
+    res.status(201).json({ message: "Failed to create New Post", e });
+  }
+};
+//End of //Getting specific Task
+

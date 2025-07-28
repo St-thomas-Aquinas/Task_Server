@@ -4,6 +4,7 @@ import { CreateUser } from "../controllers/User.controller";
 import { GetAllUsers } from "../controllers/User.controller";
 import { LoginUser } from "../controllers/User.controller";
 import { updateUser } from "../controllers/User.controller";
+import { GetSpecificUser } from "../controllers/User.controller";
 //End of Import Declarations
 
 //Variables Declaraions
@@ -14,6 +15,8 @@ const UserRouter = Router();
 UserRouter.post("/api/auth/register/", CreateUser);
 UserRouter.get("/", GetAllUsers);
 UserRouter.get("/api/auth/login/:Login", LoginUser);
+UserRouter.get("/api/:UserName", GetSpecificUser);
 UserRouter.patch("/api/auth/update/:username", updateUser);
+
 //End of Router
 export default UserRouter;
