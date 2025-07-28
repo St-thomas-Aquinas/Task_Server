@@ -59,10 +59,10 @@ export const LoginUser = async (req: any, res: any) => {
     console.log(params)
     const LoginUser = await UserClient.findMany({
       where: {
-        AND:{
+        
         UserName: LoginDetails[0],
         Password: LoginDetails[1],
-        }
+      
       },
     });
     const token = jwt.sign(
