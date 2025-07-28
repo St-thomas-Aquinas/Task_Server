@@ -8,6 +8,7 @@ import { RestoretTask } from "../controllers/Task.controller";
 import { GetDeletedTask } from "../controllers/Task.controller";
 import { GetSpecificTask } from "../controllers/Task.controller";
 import { GetAllTask } from "../controllers/Task.controller";
+import { CompleteTask} from "../controllers/Task.controller";
 //End of Import Declarations
 
 //Variables Declaraions
@@ -23,5 +24,6 @@ TaskRouter.delete("/re/:restore", RestoretTask);
 TaskRouter.patch("/update/:update", updateTask);
 TaskRouter.get("/Trash/:Mytrash", GetDeletedTask);
 TaskRouter.get("/SpesificTask/:Taskid", GetSpecificTask);
+TaskRouter.get("/MarkCompletedTask/:Taskid", CompleteTask);
 //End of Router
 export default TaskRouter;

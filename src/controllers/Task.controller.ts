@@ -175,3 +175,26 @@ export const GetSpecificTask = async (req: any, res: any) => {
   }
 };
 //End of //Getting specific Task
+
+
+
+
+//Complete task Api
+export const CompleteTask = async (req: any, res: any) => {
+  try {
+    const TaskId = req.params.Delete;
+    console.log(TaskId)
+    const CompleteTask = await UserClient.update({
+      where: {
+        id:TaskId
+      },
+      data: {
+        isCompleted:true
+      }
+    });
+    res.status(201).json({ data: CompleteTask });
+  } catch (e) {
+    res.status(201).json({ message: "Failed to create New Post", e });
+  }
+};
+// End of complete task Api
