@@ -56,6 +56,7 @@ export const LoginUser = async (req: any, res: any) => {
   try {
     const params = req.params.Login;
     LoginDetails.push(params);
+    console.log(params)
     const LoginUser = await UserClient.findUnique({
       where: {
         UserName: LoginDetails[0],
