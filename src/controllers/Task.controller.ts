@@ -31,10 +31,10 @@ export const CreateNewTask = async (req: any, res: any) => {
 export const GetTask = async (req: any, res: any) => {
   let  bol:boolean
   try {
-    let UserName = req.params.Mytasks;
+    let Name = req.params.Mytasks;
     const UsersPost = await UserClient.findMany({
       where:{
-     AND:[ { UserName:UserName},
+     AND:[ {UserName: " maxkuria",},
          {isDeleted:false}
      ]
       }
