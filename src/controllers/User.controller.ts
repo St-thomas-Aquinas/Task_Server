@@ -120,19 +120,18 @@ export const updateUser = async (req: any, res: any) => {
 
 
 //Getting specific Task
-export const GetSpecificUser = async (req: any, res: any) => {
+//Getting All users
+export const GetSpecificUser1 = async (req: any, res: any) => {
   try {
-    const UserName = req.params.UserName;
-    console.log(UserName)
-    const user = await UserClient.findMany({
-      where: {
+    const AllUser = await UserClient.findMany(
+      {where:{
         UserName:'maxkuria'
-      }
-    });
-    console.log(user)
-    res.status(201).json({ data:user });
+      }}
+    );
+    console.log(AllUser);
+    res.status(201).json({ data: AllUser });
   } catch (e) {
-    res.status(201).json({ message: "Failed to create New Post", e });
+    res.status(201).json({ message: "Failed to get users", e });
   }
 };
 //End of //Getting specific Task
