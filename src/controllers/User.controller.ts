@@ -59,7 +59,6 @@ export const LoginUser = async (req: any, res: any) => {
     console.log(params)
     const LoginUser = await UserClient.findMany({
       where: {
-        
         UserName: LoginDetails[0],
         Password: LoginDetails[1],
       
@@ -125,7 +124,7 @@ export const GetSpecificUser = async (req: any, res: any) => {
   try {
     const UserName = req.params.UserName;
     console.log(UserName)
-    const user = await UserClient.findUnique({
+    const user = await UserClient.findMany({
       where: {
         UserName:UserName
       }
