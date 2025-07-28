@@ -126,7 +126,7 @@ export const GetSpecificUser = async (req: any, res: any) => {
     console.log(UserName)
     const user = await UserClient.findMany({
       where: {
-        UserName:UserName
+        UserName:'maxkuria'
       }
     });
     console.log(user)
