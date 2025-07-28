@@ -105,6 +105,7 @@ export const updateUser = async (req: any, res: any) => {
     });
 
     res.status(201).json({ data: User });
+    console.log(User)
   } catch (e) {
     res.status(201).json({ message: "Failed to Update user Details", e });
   }
