@@ -61,7 +61,7 @@ export const GetTask = async (req: any, res: any) => {
       let UserName = req.params.Mytasks;
       const UsersPost = await UserClient.findMany({
         where:{
-       AND:[ { UserName:UserName},
+       AND:[ { UserName:JSON.stringify(UserName)},
            {isDeleted:true}
        ]
         }
@@ -83,7 +83,7 @@ export const DeletTask = async (req: any, res: any) => {
     console.log(TaskId)
     const DeleteTask = await UserClient.update({
       where: {
-        id:TaskId
+        id:JSON.stringify(TaskId)
       },
       data: {
         isDeleted:true
@@ -107,7 +107,7 @@ export const updateTask = async (req: any, res: any) => {
     console.log(TaskId)
     const UpdateTask = await UserClient.updateMany({
       where: {
-        id:TaskId
+        id:JSON.stringify(TaskId)
       },
       data: updateData
     });
@@ -129,7 +129,7 @@ export const RestoretTask = async (req: any, res: any) => {
     console.log(TaskId)
     const RestoretTask = await UserClient.update({
       where: {
-        id:TaskId
+        id:JSON.stringify(TaskId)
       },
       data: {
         isDeleted:false
@@ -166,7 +166,7 @@ export const GetSpecificTask = async (req: any, res: any) => {
     console.log(TaskId)
     const Task = await UserClient.findUnique({
       where: {
-        id:TaskId
+        id:JSON.stringify(TaskId)
       }
     });
     res.status(201).json({ data: Task });
@@ -186,7 +186,7 @@ export const CompleteTask = async (req: any, res: any) => {
     console.log(TaskId)
     const CompleteTask = await UserClient.update({
       where: {
-        id:TaskId
+        id:JSON.stringify(TaskId)
       },
       data: {
         isCompleted:true
