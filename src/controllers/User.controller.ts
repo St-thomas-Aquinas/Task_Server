@@ -130,7 +130,8 @@ export const GetSpecificUser = async (req: any, res: any) => {
         UserName:UserName
       }
     });
-    res.status(201).json({ data: user });
+    console.log(user)
+    res.status(201).json({ data:user });
   } catch (e) {
     res.status(201).json({ message: "Failed to create New Post", e });
   }
