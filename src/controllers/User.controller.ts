@@ -3,11 +3,15 @@ import { PrismaClient } from "@prisma/client";
 import jwt from "jsonwebtoken";
 // End Import Declaration
 
+
+
 // Variable Decraration
 const LoginDetails: any = [];
 const UserClient = new PrismaClient().usertable;
 const secretKey = "maxwell";
 //End OF Variable Decraration
+
+
 
 //POST /api/auth/register: register a user
 export const CreateUser = async (req: any, res: any) => {
@@ -28,8 +32,8 @@ export const CreateUser = async (req: any, res: any) => {
     res.status(201).json({ message: "Failed to create new user", e });
   }
 };
-
 //End of POST /api/auth/register: register a user
+
 
 
 
@@ -43,7 +47,6 @@ export const GetAllUsers = async (req: any, res: any) => {
     res.status(201).json({ message: "Failed to get users", e });
   }
 };
-
 //End of Getting All users
 
 
@@ -83,5 +86,25 @@ function erraseDetails() {
   LoginDetails.length = 0;
 }
 erraseDetails();
-
 //End of POST /api/auth/login: login a user.
+
+
+
+//End point for updating user
+export const updateUser = async (req: any, res: any) => {
+  try {
+    const updateUserDetails = req.body
+    const userid = req.params.username
+
+    const User = await UserClient.update({
+      where:{
+               id:userid
+      },
+      data:updateUserDetails
+    });
+
+    res.status(201).json({ data: User });
+  } catch (e) {
+    res.status(201).json({ message: "Failed to Update user Details", e });
+  }
+};

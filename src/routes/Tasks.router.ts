@@ -6,6 +6,7 @@ import { DeletTask } from "../controllers/Task.controller";
 import { updateTask } from "../controllers/Task.controller";
 import { RestoretTask } from "../controllers/Task.controller";
 import { GetDeletedTask } from "../controllers/Task.controller";
+import { GetSpecificTask } from "../controllers/Task.controller";
 import { GetAllTask } from "../controllers/Task.controller";
 //End of Import Declarations
 
@@ -15,11 +16,12 @@ const TaskRouter = Router();
 
 //Routers
 TaskRouter.post("/", CreateNewTask);
-TaskRouter.get("/:Mytasks", GetTask);
+TaskRouter.get("/NotDelete/:Mytasks", GetTask);
 TaskRouter.get("/all", GetAllTask);
 TaskRouter.delete("/de/:Delete", DeletTask);
 TaskRouter.delete("/re/:restore", RestoretTask);
-TaskRouter.patch("/:update", updateTask);
+TaskRouter.patch("/update/:update", updateTask);
 TaskRouter.get("/Trash/:Mytrash", GetDeletedTask);
+TaskRouter.get("/SpesificTask/:Taskid", GetSpecificTask);
 //End of Router
 export default TaskRouter;
