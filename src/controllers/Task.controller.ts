@@ -10,9 +10,16 @@ const UserClient = new PrismaClient().tasktable;
 //End point getting Task by UserName
 export const SpesificUserTasks = async(req:any,res:any) =>{
   try{
-    
-    const Tasks = await UserClient.findMany(
-    )
+    const UserName = req.params.UserName;
+    console.log(JSON.stringify(UserName))
+    const Tasks = await UserClient.findMany({
+where:{
+  AND:[
+    {UserName:JSON.stringify(UserName)},
+    {isDeleted:false}
+  ]
+}
+    })
    
     res.status(201).json({ Tasks });
   }catch (e) {
