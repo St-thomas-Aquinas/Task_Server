@@ -12,7 +12,7 @@ export const CreateNewTask = async (req: any, res: any) => {
     try {
       const NewPostData = req.body;
       console.log(NewPostData);
-      const NewPost = await UserClient.create({
+      const NewPost = await UserClient.createMany({
         
           data:NewPostData
         

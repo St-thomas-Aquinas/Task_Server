@@ -26,6 +26,7 @@ model usertable{
    id                       String      @id       @default(uuid())
    Title                    String
    Description               String
+   after_minutes            String                @default("null")
    DateCreated              DateTime              @default(now())
    LastUpdate               DateTime              @updatedAt
    isDeleted                Boolean               @default(false)
