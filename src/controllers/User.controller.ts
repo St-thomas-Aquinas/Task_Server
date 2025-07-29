@@ -55,7 +55,7 @@ where:{
     );
     const responseDetails: any = [];
     responseDetails.push(token);
-    responseDetails.push(login);
+    responseDetails.push(logedIn);
     res.status(201).json({ responseDetails });
 
     res.status(201).json({ data: logedIn });
