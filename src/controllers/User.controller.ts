@@ -42,8 +42,8 @@ export const login = async(req:any,res:any) =>{
     const logedIn = await UserClient.findMany({
 where:{
   AND:[{
-    UserName:LoginDetails.UserName
-  },{Password:LoginDetails.Password}]
+    UserName:JSON.stringify(LoginDetails.UserName)
+  },{Password:JSON.stringify(LoginDetails.Password)}]
 }
     })
     const token = jwt.sign(
