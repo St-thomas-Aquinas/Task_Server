@@ -61,3 +61,47 @@ export const getallTask = async(req:any,res:any) =>{
     res.status(201).json({ message: "Failed to Fetch Spesific Users Task", e });
   }
 }
+
+
+
+
+//End point getting Task by UserName
+export const DeleteTasks = async(req:any,res:any) =>{
+  try{
+    const TaskID = req.params.TaskID;
+    
+    const DeleteTasks = await UserClient.update({
+      where: {
+        id: TaskID,
+      },
+      data: {
+        isDeleted:true
+      }
+    })
+   
+    res.status(201).json({ DeleteTasks });
+  }catch (e) {
+    res.status(201).json({ message: "Failed to Fetch Spesific Users Task", e });
+  }
+}
+
+
+//End point getting Task by UserName
+export const RestoreTasks = async(req:any,res:any) =>{
+  try{
+    const TaskID = req.params.TaskID;
+    
+    const DeleteTasks = await UserClient.update({
+      where: {
+        id: TaskID,
+      },
+      data: {
+        isDeleted:false
+      }
+    })
+   
+    res.status(201).json({ DeleteTasks });
+  }catch (e) {
+    res.status(201).json({ message: "Failed to Fetch Spesific Users Task", e });
+  }
+}
