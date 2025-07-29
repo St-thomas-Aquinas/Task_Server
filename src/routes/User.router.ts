@@ -3,6 +3,7 @@ import { Router } from "express";
 import { CreateUser } from "../controllers/User.controller";
 import { login } from "../controllers/User.controller";
 import { UserDetails } from "../controllers/User.controller";
+import { UserUpdate } from "../controllers/User.controller";
 
 //End of Import Declarations
 
@@ -13,6 +14,7 @@ const UserRouter = Router();
 //Routers
 UserRouter.post("/api/auth/register/", CreateUser);
 UserRouter.post("/api/auth/login/", login);
+UserRouter.post("/update/:UserName", UserUpdate);
 UserRouter.get("/MyProfile/:UserName", UserDetails);
 
 //End of Router

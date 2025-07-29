@@ -83,3 +83,26 @@ export const UserDetails = async(req:any,res:any) =>{
     res.status(201).json({ message: "Failed to Fetch Spesific Users Task", e });
   }
 }
+
+
+
+
+
+//End point getting Task by UserName
+export const UserUpdate = async(req:any,res:any) =>{
+  try{
+    const UserName = req.params.UserName;
+    const update = req.body
+    
+    const updateTask = await UserClient.update({
+      where: {
+        UserName:UserName,
+      },
+      data: update
+    })
+   
+    res.status(201).json({ updateTask });
+  }catch (e) {
+    res.status(201).json({ message: "Failed to Fetch Spesific Users Task", e });
+  }
+}
