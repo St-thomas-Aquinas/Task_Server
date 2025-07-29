@@ -106,3 +106,27 @@ export const RestoreTasks = async(req:any,res:any) =>{
     res.status(201).json({ message: "Failed to Fetch Spesific Users Task", e });
   }
 }
+
+
+
+
+//End point getting Task by UserName
+export const SpesificTasks = async(req:any,res:any) =>{
+  try{
+    const TaskID = req.params.TaskID;
+    
+    const Tasks = await UserClient.findUnique({
+      where: {
+        id: TaskID,
+      },
+      
+    })
+   
+    res.status(201).json({ Tasks });
+  }catch (e) {
+    res.status(201).json({ message: "Failed to Fetch Spesific Users Task", e });
+  }
+}
+
+
+
