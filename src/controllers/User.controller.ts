@@ -46,6 +46,18 @@ where:{
   },{Password:LoginDetails.Password}]
 }
     })
+    const token = jwt.sign(
+      {
+        logedIn
+      },
+      secretKey,
+      { expiresIn: "1h" }
+    );
+    const responseDetails: any = [];
+    responseDetails.push(token);
+    responseDetails.push(login);
+    res.status(201).json({ responseDetails });
+
     res.status(201).json({ data: logedIn });
   }catch (e) {
     res.status(201).json({ message: "Failed to Login", e });
