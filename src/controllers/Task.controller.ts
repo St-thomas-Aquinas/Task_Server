@@ -69,6 +69,7 @@ export const getallTask = async(req:any,res:any) =>{
 export const DeleteTasks = async(req:any,res:any) =>{
   try{
     const TaskID = req.params.TaskID;
+    console.log(TaskID)
     
     const DeleteTasks = await UserClient.update({
       where: {
@@ -78,7 +79,7 @@ export const DeleteTasks = async(req:any,res:any) =>{
         isDeleted:true
       }
     })
-   
+   console.log(DeleteTasks)
     res.status(201).json({ DeleteTasks });
   }catch (e) {
     res.status(201).json({ message: "Failed to Fetch Spesific Users Task", e });
