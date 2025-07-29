@@ -6,6 +6,8 @@ import { getallTask } from "../controllers/Task.controller";
 import { DeleteTasks } from "../controllers/Task.controller";
 import { RestoreTasks } from "../controllers/Task.controller";
 import { SpesificTasks } from "../controllers/Task.controller";
+import { taskUpdate } from "../controllers/Task.controller";
+import { taskComplete } from "../controllers/Task.controller";
 
 //End of Import Declarations
 
@@ -20,4 +22,6 @@ TaskRouter.get("/MyTrash/:UserName", SpesificUserTasksDeleted);
 TaskRouter.get("/All/", getallTask);
 TaskRouter.delete("/delete/:TaskID", DeleteTasks);
 TaskRouter.delete("/restore/:TaskID", RestoreTasks);
+TaskRouter.delete("/complete/:TaskID", taskComplete);
+TaskRouter.patch("/Update/:TaskID", taskUpdate);
 export default TaskRouter;

@@ -130,3 +130,49 @@ export const SpesificTasks = async(req:any,res:any) =>{
 
 
 
+
+//End point getting Task by UserName
+export const taskUpdate = async(req:any,res:any) =>{
+  try{
+    const TaskID = req.params.TaskID;
+    const update = req.body
+    
+    const updateTask = await UserClient.update({
+      where: {
+        id: TaskID,
+      },
+      data: update
+    })
+   
+    res.status(201).json({ updateTask });
+  }catch (e) {
+    res.status(201).json({ message: "Failed to Fetch Spesific Users Task", e });
+  }
+}
+
+
+
+//End point for completting task
+export const taskComplete = async(req:any,res:any) =>{
+  try{
+    const TaskID = req.params.TaskID;
+ 
+    
+    const CompleteTask = await UserClient.update({
+      where: {
+        id: TaskID,
+      },
+      data: {
+        isCompleted:true
+      }
+    })
+   
+    res.status(201).json({ CompleteTask });
+  }catch (e) {
+    res.status(201).json({ message: "Failed to Fetch Spesific Users Task", e });
+  }
+}
+
+
+
+
