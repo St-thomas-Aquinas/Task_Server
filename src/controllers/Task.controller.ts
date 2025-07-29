@@ -16,7 +16,8 @@ export const SpesificUserTasks = async(req:any,res:any) =>{
 where:{
   AND:[
     {UserName:UserName},
-    {isDeleted:false}
+    {isDeleted:false},
+    {isCompleted:false},
   ]
 }
     })
