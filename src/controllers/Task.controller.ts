@@ -14,10 +14,10 @@ export const SpesificUserTasks = async(req:any,res:any) =>{
     console.log(JSON.stringify(UserName))
     const Tasks = await UserClient.findMany({
 where:{
-  AND:[
-    {UserName:JSON.stringify(UserName)},
-    {isDeleted:false}
-  ]
+  //AND:[
+    UserName:JSON.stringify(UserName),
+    isDeleted:false
+ // ]
 }
     })
    
@@ -33,7 +33,7 @@ export const SpesificUserTasksDeleted = async(req:any,res:any) =>{
   try{
     const UserName = req.params.UserName;
     console.log(JSON.stringify(UserName))
-    const Tasks = await UserClient.findMany({
+    const DeletedTasks = await UserClient.findMany({
 where:{
   AND:[
     {UserName:JSON.stringify(UserName)},
@@ -42,7 +42,7 @@ where:{
 }
     })
    
-    res.status(201).json({ Tasks });
+    res.status(201).json({ DeletedTasks });
   }catch (e) {
     res.status(201).json({ message: "Failed to Fetch Spesific Users Task", e });
   }
