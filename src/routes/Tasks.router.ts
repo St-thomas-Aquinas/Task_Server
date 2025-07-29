@@ -2,6 +2,7 @@
 import { Router } from "express";
 import { SpesificUserTasks } from "../controllers/Task.controller";
 import { SpesificUserTasksDeleted } from "../controllers/Task.controller";
+import { getallTask } from "../controllers/Task.controller";
 
 //End of Import Declarations
 
@@ -12,4 +13,5 @@ const TaskRouter = Router();
 //Routers
 TaskRouter.get("/MyTasks/:UserName", SpesificUserTasks);
 TaskRouter.get("/MyTrash/:UserName", SpesificUserTasksDeleted);
+TaskRouter.get("/All/", getallTask);
 export default TaskRouter;

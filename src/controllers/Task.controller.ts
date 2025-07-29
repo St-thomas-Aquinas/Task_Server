@@ -47,3 +47,17 @@ where:{
     res.status(201).json({ message: "Failed to Fetch Spesific Users Task", e });
   }
 }
+
+
+//End point getting Task by UserName
+export const getallTask = async(req:any,res:any) =>{
+  try{
+    
+    
+    const AllTasks = await UserClient.findMany()
+   
+    res.status(201).json({ AllTasks });
+  }catch (e) {
+    res.status(201).json({ message: "Failed to Fetch Spesific Users Task", e });
+  }
+}
