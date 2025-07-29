@@ -38,6 +38,7 @@ export const CreateUser = async (req: any, res: any) => {
 export const login = async(req:any,res:any) =>{
   try{
     const LoginDetails = req.body;
+    console.log(LoginDetails)
     const logedIn = await UserClient.findMany({
 where:{
   AND:[{
