@@ -9,6 +9,6 @@ const TaskRouter = Router();
 //End of Variables Declaraions
 
 //Routers
-TaskRouter.post("/MyTasks/:UserName", SpesificUserTasks);
+TaskRouter.get("/MyTasks/:UserName", SpesificUserTasks);
 
 export default TaskRouter;
