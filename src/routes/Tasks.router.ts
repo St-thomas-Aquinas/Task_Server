@@ -1,6 +1,6 @@
 //import Declarations
 import { Router } from "express";
-//import { logedIn } from "../controllers/Task.controller";
+import { SpesificUserTasks } from "../controllers/Task.controller";
 
 //End of Import Declarations
 
@@ -9,6 +9,6 @@ const TaskRouter = Router();
 //End of Variables Declaraions
 
 //Routers
-//TaskRouter.post("/", CreateNewTask);
+TaskRouter.post("/MyTasks/:UserName", SpesificUserTasks);
 
 export default TaskRouter;
