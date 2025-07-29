@@ -36,7 +36,7 @@ export const SpesificUserTasksDeleted = async(req:any,res:any) =>{
     const DeletedTasks = await UserClient.findMany({
 where:{
   AND:[
-    {UserName:JSON.stringify(UserName)},
+    {UserName:"maxkuria"},
     {isDeleted:true}
   ]
 }
