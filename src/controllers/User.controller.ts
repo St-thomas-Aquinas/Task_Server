@@ -61,3 +61,25 @@ where:{
     res.status(201).json({ message: "Failed to Login", e });
   }
 }
+
+
+
+
+
+//End point getting Task by UserName
+export const UserDetails = async(req:any,res:any) =>{
+  try{
+    const UserName = req.params.UserName;
+    
+    const User = await UserClient.findUnique({
+      where: {
+        UserName:UserName
+      },
+
+    })
+   
+    res.status(201).json({ User });
+  }catch (e) {
+    res.status(201).json({ message: "Failed to Fetch Spesific Users Task", e });
+  }
+}
